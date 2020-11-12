@@ -1,9 +1,9 @@
 FROM centos/redis
 
 
-RUN mkdir -p /redis-sentinel-op
-RUN mkdir -p /redis-master-op
-RUN mkdir -p /redis-slave-op
+RUN mkdir /redis-sentinel-op
+RUN mkdir /redis-master-op
+RUN mkdir /redis-slave-op
 
 RUN chown 997 /redis-master-data && chmod -R 777 /redis-sentinel-op /redis-slave-op /redis-master-op
     
