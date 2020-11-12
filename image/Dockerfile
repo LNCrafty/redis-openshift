@@ -1,6 +1,8 @@
 FROM centos
 
 RUN yum install epel-release -y
+
+
 RUN yum install redis hostname -y --enablerepo=remi; yum clean all
 
 COPY redis-master.conf /redis-master/redis.conf
