@@ -1,10 +1,8 @@
-FROM centos:centos7
-MAINTAINER LNCrafty
+FROM centos/redis
 
-RUN yum -y --setopt=tsflags=nodocs update && \
-    yum -y --setopt=tsflags=nodocs install epel-release && \
-    yum -y --setopt=tsflags=nodocs install redis && \
-    yum clean all
+RUN mkdir /redis-master-data && \
+    chmod 755 /entrypoint /redis-master-data && \
+    chown 997 /redis-master-data
 
 COPY redis-master.conf /redis-master/redis.conf
 COPY redis-slave.conf /redis-slave/redis.conf
