@@ -1,6 +1,8 @@
 FROM centos
 
+RUN yum update -y
 RUN yum install epel-release -y
+RUN yum update -y
 RUN yum install redis -y; yum clean all
 
 COPY redis-master.conf /redis-master/redis.conf
